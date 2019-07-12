@@ -2,6 +2,7 @@ package nl.toefel.server;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import io.grpc.protobuf.services.ProtoReflectionService;
 
 import java.io.IOException;
 
@@ -12,6 +13,7 @@ public class ServerMain {
 
         Server service = ServerBuilder.forPort(53000)
                 .addService(new ReservationController(repository))
+                .addService(ProtoReflectionService.newInstance())
                 .build()
                 .start();
 

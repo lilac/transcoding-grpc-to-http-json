@@ -58,6 +58,8 @@ class ReservationController extends ReservationServiceGrpc.ReservationServiceImp
             throw Status.UNAUTHENTICATED.asRuntimeException();
         } else {
             // nothing, empty response should yield []
+            List<Reservation> res = reservationRepository.listReservations();
+            res.forEach(responseObserver::onNext);
             responseObserver.onCompleted();
         }
     }
