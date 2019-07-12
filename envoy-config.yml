@@ -44,5 +44,5 @@ static_resources:
     http2_protocol_options: {}
     hosts:
     - socket_address:
-        address: 127.0.0.1                       #8
+        address: docker.for.mac.localhost                       #8
         port_value: 53000
